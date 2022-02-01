@@ -116,11 +116,11 @@
                 <div id="defaultBtn" class="formRow formBtn">
                     <button type="button" onclick="formEdit('#editBtn', '#defaultBtn')"><i class="far fa-edit "></i>
                         Editar</button>
-                    <button><i class="fas fa-times"></i> Fechar</button>
-                    <button type="button"><i class="far fa-trash-alt"></i> Excluir</button>
+                    <button type="reset" onclick="closeModal()"><i class="fas fa-times"></i> Fechar</button>
+                    <button type="reset"><i class="far fa-trash-alt"></i> Excluir</button>
                 </div>
                 <div id="editBtn" class="formRow formBtn innactive">
-                    <button type="reset" onclick="formEdit('#defaultBtn', '#editBtn')"><i class="fas fa-arrow-left"></i>
+                    <button type="button" onclick="formEdit('#defaultBtn', '#editBtn')"><i class="fas fa-arrow-left"></i>
                         Cancelar</button>
                     <button type="submit"><i class="far fa-save"></i> Salvar</button>
                 </div>

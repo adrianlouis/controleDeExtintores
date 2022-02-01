@@ -163,7 +163,7 @@ tr{
 
 
 .modalExtFull{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -101vw;
     transition: all .5s;
@@ -230,7 +230,7 @@ form input, form select{
     text-align: center;
 }
 
-form input:disabled, form select:disabled{
+form input:disabled, form select:disabled, form textarea:disabled{
 background-color: transparent;
 border: transparent;
 color: white;

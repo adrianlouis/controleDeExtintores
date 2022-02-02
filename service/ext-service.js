@@ -54,7 +54,7 @@ http.onload = () => {
     });
 
     var tipo = document.querySelectorAll('.tipoExtintor')
-    for (i = 0; i <= tipo.length-1; i++) {
+    for (i = 0; i <= tipo.length - 1; i++) {
         if (tipo[i].innerHTML == "0") {
             tipo[i].innerHTML = "AP"
         } else if (tipo[i].innerHTML == "1") {
@@ -63,99 +63,165 @@ http.onload = () => {
             tipo[i].innerHTML = "PQS"
         }
     }
-    
+
+    console.log(data)
+
     // PROXIMA RECARGA COM DATA CONVERTIDA PARA MM/YYYY
     var proxRecarga = document.querySelectorAll('.nextCharge')
-    for (i=0; i<proxRecarga.length;i++){
+    for (i = 0; i < proxRecarga.length; i++) {
         var recargaString = new Date(proxRecarga[i].innerHTML).toLocaleDateString('pt-PT')
         proxRecarga[i].innerHTML = `Próx. Recarga: ${recargaString}`
     }
 
     // PROXIMO RETESTE COM DATA CONVERTIDA PARA MM/YYYY
     var proxReteste = document.querySelectorAll('.nextTest')
-    for (i=0; i<proxReteste.length;i++){
+    for (i = 0; i < proxReteste.length; i++) {
         var retesteString = new Date(proxReteste[i].innerHTML).toLocaleDateString('pt-PT')
         proxReteste[i].innerHTML = `Próx. Reteste: ${retesteString}`
     }
 }
+var codigoUniversal
 
-function horus(codigo){
+function horus(codigo) {
     const modal = document.querySelector('.modalExtFull')
-    var codigoUniversal = codigo
-    modal.style.left = 0;
     // let array = document.getElementsByTagName('h2')
     // console.log(array.innerHTML)
 
-    http.open('GET', 'http://ortegavan-001-site1.itempurl.com/extintor/'+codigo)
+    http.open('GET', 'http://ortegavan-001-site1.itempurl.com/extintor/' + codigo)
     http.send()
     http.onload = () => {
         const data = JSON.parse(http.response)
 
+        codigoUniversal = data.codigo
         let ultimaRec = new Date(data.ultimaRecarga)
         ultimaRec = ultimaRec.toLocaleDateString('pt-PT').split('/').reverse().join('-')
         let ultimoRet = new Date(data.ultimoReteste)
         ultimoRet = ultimoRet.toLocaleDateString('pt-PT').split('/').reverse().join('-')
-        let proxRec = new Date (data.proximaRecarga)
+        let proxRec = new Date(data.proximaRecarga)
         proxRec = proxRec.toLocaleDateString('pt-PT').split('/').reverse().join('-')
-        let proxRet = new Date (data.proximoReteste)
+        let proxRet = new Date(data.proximoReteste)
         proxRet = proxRet.toLocaleDateString('pt-PT').split('/').reverse().join('-')
 
-    document.querySelector('#extintorNumero').innerHTML = data.numero;
-    document.querySelector('#numeroExtintor').value = data.numero
-    document.querySelector('#tipo').value = data.tipo
-    document.querySelector('#local').value = data.codigoSubLocal
-    document.querySelector('#ultRec').value = ultimaRec
-    document.querySelector('#ultRet').value = ultimoRet
-    document.querySelector('#proxRec').value = proxRec
-    document.querySelector('#proxRet').value = proxRet
-    document.querySelector('#avaria').innerHTML = data.avarias
+        document.querySelector('#extintorNumero').innerHTML = data.numero;
+        document.querySelector('#numeroExtintor').value = data.numero
+        document.querySelector('#tipo').value = data.tipo
+        document.querySelector('#local').value = data.codigoSubLocal
+        document.querySelector('#ultRec').value = ultimaRec
+        document.querySelector('#ultRet').value = ultimoRet
+        document.querySelector('#proxRec').value = proxRec
+        document.querySelector('#proxRet').value = proxRet
+        document.querySelector('#avaria').innerHTML = data.avarias
+        document.querySelector('#classe').value = data.classe
 
-    let type = document.querySelector('#tipo')
-    let classeExt = document.querySelector('#classe')
+        let classeExt = document.querySelector('#classe')
 
-    if (type.value == "0"){
-        classeExt.value = "A"
-    }else if (type.value == "1"){
-        classeExt.value = "C"
-    }else{
-        classeExt.value = "B"
+        if (classeExt.value == 0){
+            classeExt.value = "A"
+        }else if (classeExt.value == 1) {
+            classeExt.value = "C"
+        }else{
+            classeExt.value = "B"
+        }
+
+        modal.style.top = 0;
+
     }
-    console.log('TIPO value: '+type.value)
-   
-}}
+}
 
-function formEdit(show, hide){
+function formEdit(show, hide) {
     const inputs = document.getElementsByTagName('input')
     const selects = document.getElementsByTagName('select')
     const avaria = document.querySelector('#avaria')
+    // const extNumber = document.querySelector('#extintorNumero')
 
-    for (i=0; i < inputs.length; i++){
-        if (inputs[i].disabled != false){
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].disabled != false) {
             inputs[i].disabled = false;
-        }else{
+        } else {
             inputs[i].disabled = true
         }
     }
 
-    if (avaria.disabled != false){
+    if (avaria.disabled != false) {
         avaria.disabled = false
-    }else{
+    } else {
         avaria.disabled = true
     }
 
-    for (i=0; i < selects.length; i++){
-        if (selects[i].disabled != false){
+    for (i = 0; i < selects.length; i++) {
+        if (selects[i].disabled != false) {
             selects[i].disabled = false
-        }else{
+        } else {
             selects[i].disabled = true
+            horus(codigoUniversal)
         }
     }
-    
+
     document.querySelector(hide).classList.add("innactive")
     document.querySelector(show).classList.remove("innactive")
 }
 
-function closeModal(){
+function closeModal() {
     const modal = document.querySelector('.modalExtFull')
-    modal.style.left = '-101vw';
+    modal.style.top = '-101vw';
+}
+
+
+var extintorNumero = document.querySelector('#extintorNumero')
+var numeroExtintor = document.querySelector('#numeroExtintor')
+var tipoDoExtintor = document.querySelector('#tipo')
+var localDoExtintor = document.querySelector('#local')
+var ultimaRecargaData = document.querySelector('#ultRec')
+var ultimoRetesteData = document.querySelector('#ultRet')
+var proximaRecargaData = document.querySelector('#proxRec')
+var proximoRetesteData = document.querySelector('#proxRet')
+var avariasDoExtintor = document.querySelector('#avaria')
+var classeDoExtintor = document.querySelector('#classe')
+var sinalizacaoExtintor = document.querySelector('#sinalizacao')
+
+function criarExtintor() {
+
+    var xhr = new XMLHttpRequest();
+
+    if (classeDoExtintor.value == "A"){
+        classeDoExtintor.value = 0
+    }else if (classeDoExtintor.value == "C") {
+        classeDoExtintor.value = 1
+    }else{
+        classeDoExtintor.value = 2
+    }
+
+    //teste com parseInt em variavel para depois fazer post
+    var prim = parseInt(numeroExtintor.value)
+    var seg = parseInt(tipoDoExtintor.value)
+    var ter = parseInt(classeDoExtintor.value)
+    var qua =  parseInt(sinalizacaoExtintor.value)
+    
+    let newExt = {
+        "codigoUsuario": 2,
+        "codigoSubLocal": 18,
+        "criacao": new Date(),
+        "alteracao": new Date(),
+        "numero": prim,
+        "tipo": seg,
+        "classe": ter,
+        "ultimaRecarga": new Date(),
+        "proximaRecarga": new Date(),
+        "ultimoReteste": new Date(),
+        "proximoReteste": new Date(),
+        "sinalizacao": qua,
+        "avarias": null
+    }
+
+    
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            console.log(xhr)
+        }
+    }
+
+    console.log(newExt)
+    xhr.open("POST", "http://ortegavan-001-site1.itempurl.com/extintor/", true)
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8")
+    xhr.send(JSON.stringify(newExt))
 }

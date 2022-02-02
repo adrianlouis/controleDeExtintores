@@ -4,7 +4,7 @@
 }
 
 body{
-max-width: 450px;
+width: 450px;
 margin: auto;
 min-height: 100vh;
 position: relative;
@@ -164,10 +164,10 @@ tr{
 
 .modalExtFull{
     position: fixed;
-    top: 0;
-    left: -101vw;
+    top: -101vh;
+    /* left: -101vw; */
     transition: all .5s;
-    width: 100%;
+    width: 450px;
     height: 100%;
 
     display: flex;

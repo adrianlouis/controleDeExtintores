@@ -55,7 +55,7 @@
         <div class="extCardDetalhe">
 
 
-            <h1 id="extintorNumero"> Extintor 65465 </h1>
+            <h1 id="extintorNumero"></h1>
 
             <form id="extFull">
                 <div class="formRow">
@@ -105,8 +105,8 @@
                     <div>
                         <label for="sinalizacao">Sinalização</label>
                         <select disabled id="sinalizacao">
-                            <option>Ok</option>
-                            <option>Avariado</option>
+                            <option value="0">Ok</option>
+                            <option value="1">Avariado</option>
                         </select>
                     </div>
                     <label for="avaria">Avaria</label>
@@ -122,7 +122,7 @@
                 <div id="editBtn" class="formRow formBtn innactive">
                     <button type="button" onclick="formEdit('#defaultBtn', '#editBtn')"><i class="fas fa-arrow-left"></i>
                         Cancelar</button>
-                    <button type="submit"><i class="far fa-save"></i> Salvar</button>
+                    <button type="submit" onclick="criarExtintor()"><i class="far fa-save"></i> Salvar</button>
                 </div>
 
             </form>

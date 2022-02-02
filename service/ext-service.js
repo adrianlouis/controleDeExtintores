@@ -1,3 +1,5 @@
+// criarExtintor2();
+
 const criarNovaLinha = (codigo, numero, tipo, classe, codigoSubLocal, ultimaRecarga, proximaRecarga, ultimoReteste, proximoReteste, sinalizacao, avarias) => {
     const linhaNova = document.createElement('tr')
 
@@ -212,7 +214,6 @@ function criarExtintor() {
         "sinalizacao": qua,
         "avarias": null
     }
-
     
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4){
@@ -224,4 +225,35 @@ function criarExtintor() {
     xhr.open("POST", "http://ortegavan-001-site1.itempurl.com/extintor/", true)
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8")
     xhr.send(JSON.stringify(newExt))
+}
+
+function criarExtintor2()
+{
+    let extintor = {
+        "codigoUsuario": 2,
+        "codigoSubLocal": 18,
+        "numero": 666,
+        "tipo": 1,
+        "classe": 1,
+        "ultimaRecarga": "2022-02-01",
+        "proximaRecarga": "2022-02-01",
+        "ultimoReteste": "2022-02-01",
+        "proximoReteste": "2022-02-01",
+        "sinalizacao": 0
+    };
+
+    fetch("http://ortegavan-001-site1.itempurl.com/extintor", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(extintor)
+    })
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }

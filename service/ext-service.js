@@ -257,3 +257,16 @@ function criarExtintor2()
         console.error('Error:', error);
     });
 }
+
+function iconMenu(){
+    let menu = document.querySelector('.modalMenu')
+    menu.style.top = 0;
+
+
+}
+
+function closeIconMenu(){
+    let menu = document.querySelector('.modalMenu')
+
+    menu.style.top = '-101vh'
+}

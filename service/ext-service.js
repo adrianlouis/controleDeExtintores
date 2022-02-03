@@ -104,7 +104,7 @@ function horus(codigo) {
         let proxRet = new Date(data.proximoReteste)
         proxRet = proxRet.toLocaleDateString('pt-PT').split('/').reverse().join('-')
 
-        document.querySelector('#extintorNumero').innerHTML = data.numero;
+        document.querySelector('#extintorNumero').innerHTML = "Extintor " + data.numero;
         document.querySelector('#numeroExtintor').value = data.numero
         document.querySelector('#tipo').value = data.tipo
         document.querySelector('#local').value = data.codigoSubLocal
@@ -117,11 +117,11 @@ function horus(codigo) {
 
         let classeExt = document.querySelector('#classe')
 
-        if (classeExt.value == 0){
+        if (classeExt.value == 0) {
             classeExt.value = "A"
-        }else if (classeExt.value == 1) {
+        } else if (classeExt.value == 1) {
             classeExt.value = "C"
-        }else{
+        } else {
             classeExt.value = "B"
         }
 
@@ -185,11 +185,11 @@ function criarExtintor() {
 
     var xhr = new XMLHttpRequest();
 
-    if (classeDoExtintor.value == "A"){
+    if (classeDoExtintor.value == "A") {
         classeDoExtintor.value = 0
-    }else if (classeDoExtintor.value == "C") {
+    } else if (classeDoExtintor.value == "C") {
         classeDoExtintor.value = 1
-    }else{
+    } else {
         classeDoExtintor.value = 2
     }
 
@@ -197,8 +197,8 @@ function criarExtintor() {
     var prim = parseInt(numeroExtintor.value)
     var seg = parseInt(tipoDoExtintor.value)
     var ter = parseInt(classeDoExtintor.value)
-    var qua =  parseInt(sinalizacaoExtintor.value)
-    
+    var qua = parseInt(sinalizacaoExtintor.value)
+
     let newExt = {
         "codigoUsuario": 2,
         "codigoSubLocal": 18,
@@ -214,9 +214,9 @@ function criarExtintor() {
         "sinalizacao": qua,
         "avarias": null
     }
-    
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4){
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
             console.log(xhr)
         }
     }
@@ -227,8 +227,7 @@ function criarExtintor() {
     xhr.send(JSON.stringify(newExt))
 }
 
-function criarExtintor2()
-{
+function criarExtintor2() {
     let extintor = {
         "codigoUsuario": 2,
         "codigoSubLocal": 18,
@@ -250,23 +249,32 @@ function criarExtintor2()
         },
         body: JSON.stringify(extintor)
     })
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
-
-function iconMenu(){
-    let menu = document.querySelector('.modalMenu')
+var menu = document.querySelector('.modalMenu')
+function iconMenu() {
     menu.style.top = 0;
+}
 
+function closeIconMenu() {
+    menu.style.top = '-101vh'
 
 }
 
-function closeIconMenu(){
-    let menu = document.querySelector('.modalMenu')
+function addExtintor() {
+    closeIconMenu();
+    document.querySelector('.modalExtFull').style.top = 0;
+}
 
-    menu.style.top = '-101vh'
+function teste(n){
+    if (n.innerHTML !== "<input type='search' placeholder='Buscar'>"){
+        n.innerHTML = "<input type='search' placeholder='Buscar'>"
+    }else{
+        return
+    }
 }

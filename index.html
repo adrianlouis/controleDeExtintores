@@ -24,7 +24,12 @@
     <!-- MODAL DO MENU  -->
     <div class="modalMenu">
         <i class="fas fa-times" onclick="closeIconMenu()"></i>
-        <span>Menu</span>
+
+        <ul>
+            <li>Pesquisar Extintor</li>
+            <li onclick="addExtintor()">Adicionar Extintor</li>
+        </ul>
+        
     </div>
 
     <div id="containerCards" class="containerCards">
@@ -106,7 +111,7 @@
                     </div>
                 </div>
 
-                <div class="formCol">
+                <div class="formAvarias">
                     <div>
                         <label for="sinalizacao">Sinalização</label>
                         <select disabled id="sinalizacao">
@@ -114,8 +119,11 @@
                             <option value="1">Avariado</option>
                         </select>
                     </div>
-                    <label for="avaria">Avaria</label>
-                    <textarea disabled form="extFull" maxlength="200" id="avaria"></textarea>
+                    <div>
+
+                        <label for="avaria">Avaria</label>
+                        <textarea disabled form="extFull" maxlength="200" id="avaria"></textarea>
+                    </div>
                 </div>
 
                 <div id="defaultBtn" class="formRow formBtn">

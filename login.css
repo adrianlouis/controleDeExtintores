@@ -82,3 +82,6 @@ form button{
     border-color: transparent;
     font-weight: 700;
 }
+form button:active{
+    background-color: rgba(106, 92, 202, 1);
+}

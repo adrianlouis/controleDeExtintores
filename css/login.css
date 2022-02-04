@@ -33,7 +33,7 @@ body{
 }
 
 input::placeholder{
-    padding-left: 50px;
+    padding-left: 10px;
 }
 
 section, form{
@@ -72,6 +72,13 @@ form input{
     font-size: .8rem;
     margin-bottom: 15px;
 }
+.loginSenha a{
+    text-decoration: none;
+    color: black;
+}
+.loginSenha a:hover{
+    color: blue;
+}
 form button{
     background-color: rgba(156, 142, 252, 1);
     color: #ffffff;
@@ -81,7 +88,15 @@ form button{
     margin: 20px;
     border-color: transparent;
     font-weight: 700;
+    text-align: center;
 }
 form button:active{
     background-color: rgba(106, 92, 202, 1);
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

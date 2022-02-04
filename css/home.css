@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root{
+    --bg-color: #f6f6f6;
+    --primaria-color: #8877f1;
+    --secundaria-color: #49adcc;
+    --terciaria-color: #e14e4e;
+    --quaternaria-color: #fc9319;
+    --quinaria-color: #999999;
+
+    --darkBg-color: #2F2947;
+    --primaria-color: #544978;
+    --secundaria-color: #e1e1f1;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -86,6 +99,14 @@ header, main, footer{
     flex-direction: row;
     justify-content: space-between;
     margin: 15px;
+    transition: all .5s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+.smallCard:hover{
+    background-color: #f0f0f0;
+    border-radius: 20px;
+
 }
 
 .extType{
@@ -124,6 +145,7 @@ footer{
     border-end-start-radius: 20px;
     position: sticky;
     bottom: 0;
+    transition: all .5s ease-in-out;
 }
 .footerDot{
     position: absolute;
@@ -133,6 +155,7 @@ footer{
     border-radius: 50%;
     left: 17.5%;
     bottom: 4px;
+    transition: all .7s ease-in-out;
 }
 .footerActive{
     color: rgba(136, 119, 241, 1);

@@ -121,7 +121,9 @@ header, main, footer{
     justify-content: center;
     width: 60px;
     height: 60px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 600;
 }
 
 .extNumber span{

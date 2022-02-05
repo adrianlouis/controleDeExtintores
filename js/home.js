@@ -1,15 +1,22 @@
 var http = new XMLHttpRequest();
 
-const homeCard = (numero, tipo, sinalizacao) => {
+const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => {
     const container = document.createElement('div')
     container.classList.add('smallCard')
+
+    var nextRec = new Date (proximaRecarga).toLocaleDateString('pt-PT')
+    nextRec = nextRec.split('T')[0]
+
+    var nextRet = new Date (proximaRecarga).toLocaleDateString('pt-PT')
+    nextRet.split('T')[0]
+
     const template = `
     <div class="extType">
         <span class="extTipo">${tipo}</span>
     </div>
     <div class="extNumber">
         <h3>${numero}</h3>
-        <span>31/01/2022 • 20/06/2022</span>
+        <span id="homeDatas">${nextRec} • ${nextRet}</span>
     </div>
     <div class="extSinalizacao">
         ${sinalizacao}
@@ -31,8 +38,11 @@ http.onload = () => {
     const data = JSON.parse(http.response)
     console.log(data)
     data.forEach(elem => {
-        containerHomeCards.appendChild(homeCard(elem.numero, elem.tipo, elem.sinalizacao))
+        var proximaRecargaData = elem.proximaRecarga
+        containerHomeCards.appendChild(homeCard(elem.numero, elem.tipo, elem.proximaRecarga, elem.proximoReteste, elem.sinalizacao))
+        console.log(proximaRecargaData)
     })
+
     var extTipo = document.querySelectorAll('.extType')
     for (i=0; i<extTipo.length; i++){
         console.log(extTipo[i].innerText)
@@ -68,7 +78,6 @@ function footerChoice(n, p) {
     atualAtivo.classList.remove('footerActive')
     n.classList.add('footerActive')
     dot.style.left = p;
-
 }
 
 

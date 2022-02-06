@@ -65,14 +65,15 @@ header, main, footer{
 .headerNomeUsuario{
     font-size: 1.5rem;
 }
-.headerUsuario i{
+.headerUsuario i, .headerNovoExt i{
     font-size: 2rem;
     color: #8877F1;
 }
 .historico{
     width: 90%;
 }
-.historicoFiltro{
+
+.historicoFiltro, .headerNovoExt{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -84,11 +85,23 @@ header, main, footer{
     padding: 5px 10px;
     border-radius: 10px;
     color: #000000;
+    width: 15%;
+    text-align: center;
     /* EM JAVASCRIPT, APLICAR CLASSE A COR rgba(136, 119, 241, 1) AO CLICAR */
 }
-.historicoFiltro a:hover{
-    background-color: rgba(136, 119, 241, 1);
+.historicoFiltro a:nth-child(1){
+    color: rgba(225, 78, 78, 1);
+    background-color: rgba(250, 223, 223, 1);
 }
+.historicoFiltro a:nth-child(2){
+    color: rgba(73, 173, 204, 1);
+    background-color: rgba(228, 246, 252, 1);
+}
+.historicoFiltro a:nth-child(3){
+    color: rgba(252, 147, 25, 1);
+    background-color: rgba(254, 237, 218, 1);
+}
+
 .historico span{
     font-size: 1.5rem;
 }
@@ -156,7 +169,7 @@ footer{
     height: 5px;
     background-color: rgba(186, 176, 252, 1);
     border-radius: 50%;
-    left: 17.5%;
+    left: 38.5%;
     bottom: 4px;
     transition: all .7s ease-in-out;
 }
@@ -170,4 +183,91 @@ footer a{
 }
 footer a:hover{
 color:rgba(136, 119, 241, 1)
+}
+
+
+
+
+
+
+
+
+form{
+    width: 90%;
+}
+
+.formInputRow, .datas{
+    margin: 20px auto;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;    
+}
+
+.formInputRow input, .formInputRow select{
+    /* border: 1px solid blue; */
+    width: 95%;
+    border-radius: 25px;
+    margin: 0 auto;
+    padding: 10px 0;
+    background-color: rgba(246, 246, 246, 1);
+    border: 1px solid rgba(153, 153, 153, 1);
+    padding-left: 15px;
+}
+
+.formInputRow select{
+    width: 100%;
+    appearance: none;
+    color: rgba(153, 153, 153, 1);
+    background-color: rgba(246, 246, 246, 1);
+
+}
+
+.select{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select img{
+    position: absolute;
+    right: 10px;
+    width: 25px;
+    color: rgb(231, 10, 10);
+    filter: opacity(40%);
+}
+
+.select select option{
+    background-color: #f6f6f6;
+    border: 1px solid rgba(153, 153, 153, 1);
+    border-radius: 25px;
+}
+
+.formInputRow .datas{
+    /* width: 40%; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    /* border: 1px solid red; */
+}
+.datas .recarga, .datas .reteste{
+width: 45%;
+/* border: 1px solid blue; */
+}
+.datas input{
+    padding-left: unset;
+    width: 100%;
+    text-align: center;
+}
+.datetime-input-edit-wrapper{
+    margin-left: 20px;
+}
+.formInputRow textarea{
+   resize: none; 
+   border-radius: 10px;
+   border: 1px solid rgba(153, 153, 153, 1);
+   background-color: #f6f6f6;
+   padding: 5px;
 }

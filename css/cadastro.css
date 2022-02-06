@@ -214,6 +214,13 @@ form{
     flex-direction: column;    
 }
 
+label{
+    margin-bottom: 5px;
+}
+#ultRec, #proxRet{
+    margin-top: 5px;
+}
+
 .formInputRow input, .formInputRow select{
     width: 100%;
     box-sizing: border-box;

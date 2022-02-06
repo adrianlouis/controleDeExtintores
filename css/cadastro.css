@@ -163,16 +163,23 @@ footer{
     bottom: 0;
     transition: all .5s ease-in-out;
 }
-.footerDot{
-    position: absolute;
+
+.footerDotFill{
+    color: transparent;
+    border: 2px solid transparent;
+}
+
+.footerDotFillActive{
+    
     width: 5px;
     height: 5px;
-    background-color: rgba(186, 176, 252, 1);
     border-radius: 50%;
-    left: 38.5%;
-    bottom: 4px;
-    transition: all .7s ease-in-out;
+    border: 2px solid rgba(136, 119, 241, 1);
+    background-color: rgba(136, 119, 241, 1);
+    display: block;
+    margin: 0 auto;
 }
+
 .footerActive{
     color: rgba(136, 119, 241, 1);
 }
@@ -195,6 +202,9 @@ color:rgba(136, 119, 241, 1)
 form{
     width: 90%;
 }
+.formInputRow{
+    width: 100%;
+}
 
 .formInputRow, .datas{
     margin: 20px auto;
@@ -205,8 +215,8 @@ form{
 }
 
 .formInputRow input, .formInputRow select{
-    /* border: 1px solid blue; */
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 25px;
     margin: 0 auto;
     padding: 10px 0;

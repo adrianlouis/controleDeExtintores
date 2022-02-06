@@ -30,7 +30,7 @@ header{
     border-top-right-radius: 20px;
 }
 header, main, footer{
-    width: 390px;
+    width: 100vw;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -213,6 +213,7 @@ form{
     background-color: rgba(246, 246, 246, 1);
     border: 1px solid rgba(153, 153, 153, 1);
     padding-left: 15px;
+    color: #999999;
 }
 
 .formInputRow select{
@@ -260,6 +261,7 @@ width: 45%;
     padding-left: unset;
     width: 100%;
     text-align: center;
+    color: #999999;
 }
 .datetime-input-edit-wrapper{
     margin-left: 20px;
@@ -270,4 +272,5 @@ width: 45%;
    border: 1px solid rgba(153, 153, 153, 1);
    background-color: #f6f6f6;
    padding: 5px;
+   color: #999999;
 }

@@ -30,7 +30,7 @@ header{
     border-top-right-radius: 20px;
 }
 header, main, footer{
-    width: 390px;
+    width: 100vw;
     margin: 0 auto;
     display: flex;
     justify-content: center;

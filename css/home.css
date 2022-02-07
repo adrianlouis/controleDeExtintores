@@ -94,15 +94,71 @@ header, main, footer{
 }
 
 .smallCard{
-    width: 90%;
+    width: 90vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15px;
+    margin: 40px;
     transition: all .5s ease-in-out;
-    border: 1px solid transparent;
     border-radius: 20px;
+
+    transform-style: preserve-3d;
+    position: relative;
 }
+
+.smallCard .smCard{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .75s ease-in-out;
+    backface-visibility: hidden;
+    transform: perspective(500px) rotateY(0deg);
+}
+
+.smallCard .smCard.front{
+    background-color: black;
+}
+
+/* .smallCard:hover .smCard.front{
+transform: perspective(500px) rotateY(180deg);
+} */
+
+.smallCard .smCard.back{
+background-color: #49adcc;
+transform: perspective(500px) rotateY(180deg);
+justify-content: space-evenly;
+font-size: 1.5rem;
+}
+
+.smallCard .smCard.back i{
+    cursor: pointer;
+}
+
+#back h3{
+    font-size: 1.2rem;
+}
+
+/* .smallCard:hover .smCard.back{
+transform: perspective(500px) rotateY(360deg);
+} */
+
+.delete{
+background-color: orange;
+color: wheat;
+width: 30vw;
+
+/* position: absolute; */
+right: 0;
+top: 0;
+}
+
+
 .smallCard:hover{
     background-color: #f0f0f0;
     border-radius: 20px;

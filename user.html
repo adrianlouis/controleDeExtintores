@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+    <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/user.js" defer></script>
+
+    <title>Perfil</title>
+</head>
+
+<body onload="rUlogged()">
+
+    <header>
+
+        <div class="headerUsuario">
+            <div class="headerAvatar">
+                <img src="img/femalePic.svg">
+            </div>
+
+            <div class="headerName">
+                <span>Boa tarde</span>
+                <h2 class="headerNomeUsuario"></h2>
+            </div>
+
+            <i class="fas fa-moon-stars"></i>
+        </div>
+
+        <div class="historico">
+
+            <div class="headerNovoExt">
+                <span id="newOrEdit">Usuário</span>
+                <span id="alerts"></span>
+                <i id="iconSave" onclick="save(this)" style="display: none;" class="fas fa-save"></i>
+                <i id="iconEdit" onclick="edit(this)" class="far fa-edit"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <form>
+
+            <div class="formInputRow">
+                <label for="userName">Nome Completo</label>
+                <input type="text" id="userName" disabled>
+            </div>
+            <div class="formInputRow">
+                <label for="userEmail">E-mail (login)</label>
+                <input type="email" id="userEmail" disabled>
+            </div>
+
+            
+            <div class="formInputRow displayToggle">
+                <label for="userPW">Senha atual</label>
+                <input type="password" id="userPW">
+            </div>
+            <div class="formInputRow displayToggle">
+                <label for="userNewPW">Nova senha</label>
+                <input type="password" id="userNewPW">
+            </div>
+            <div class="formInputRow displayToggle">
+                <label for="userRepNewPW">Repetir nova senha</label>
+                <input type="password" id="userRepNewPW">
+            </div>
+
+
+
+
+        </form>
+
+    </main>
+    <footer>
+
+        <div class="footerDot">
+            <a href="home.html"><i class="fas fa-home-lg-alt"></i></a>
+            <div class="footerDotFill"></div>
+
+        </div>
+
+        <div class="footerDot">
+            <a href="cadastro.html"><i class="fas fa-fire-extinguisher"></i></a>
+            <div id="dotExtintor" class="footerDotFill"></div>
+        </div>
+
+        <div class="footerDot">
+            <a href="historico.html"><i class="fas fa-history"></i></a>
+            <div class="footerDotFill"></div>
+
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-user footerActive"></i>
+            <div class="footerDotFill footerDotFillActive"></div>
+
+        </div>
+    </footer>
+
+</body>
+<!-- <script src="service/ext-service.js"></script> -->
+
+</html>

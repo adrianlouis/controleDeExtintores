@@ -23,12 +23,12 @@
 
 // }
 
-function setCookie(cNome, cValor){
-document.cookie = cNome + "=" +cValor+';';
+function setCookie(cNome, cValor) {
+    document.cookie = cNome + "=" + cValor + ';';
 }
 
-var token =''
-function logar(){
+var token = ''
+function logar() {
     let email = document.querySelector('#email')
     let senha = document.querySelector('#senha')
 
@@ -49,26 +49,28 @@ function logar(){
 
     //mandar requisição de POST
     fetch('https://apiextintores.azurewebsites.net/usuario', options)
-    .then(res => res.json())
-    .then(res => {
+        .then(res => res.json())
+        .then(res => {
 
-        token = res.token;
-        // document.cookie = `user=${res.nome}; token=${res.token}`
-       
+            token = res.token;
+            // document.cookie = `user=${res.nome}; token=${res.token}`
+            console.log(res.codigo)
 
-        if(token !== undefined){
+            if (token !== undefined) {
 
-            //set cookie
-            setCookie('user', res.nome)
-            setCookie('token', token)
-            let x = document.cookie
+                //set cookie
+                setCookie('user', res.nome)
+                setCookie('token', token)
+                setCookie('email', res.login)
+                setCookie('id', res.codigo)
+                let x = document.cookie
 
-            location.href = 'home.html'
-        }else{
-            email.value = ""
-            senha.value = ""
-        }
-    })
+                location.href = 'home.html'
+            } else {
+                email.value = ""
+                senha.value = ""
+            }
+        })
 
-    .catch(err => console.log('erro'))
+        .catch(err => console.log('erro'))
 }
